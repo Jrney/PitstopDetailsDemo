@@ -1,0 +1,20 @@
+{
+  "name": "PlaceDetails",
+  "version": "0.0.1",
+  "authors": [
+    "Chelsea Lura <mail@chelsealura.com>"
+  ],
+  "description": "Implementation text of box details",
+  "main": "server.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "masonry": "~3.1.5"
+  }
+}
