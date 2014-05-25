@@ -1,3 +1,4 @@
+/*jslint node: true */
 'use strict';
 
 module.exports = function(grunt) {
@@ -12,9 +13,9 @@ require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
         copy: {
             all: {
               expand: true,
-              cwd: 'app/',
+              cwd: 'app',
               src: ['*.css','*.html','/images/**/*','!Gruntfile.js'],
-              dest: '/dist',
+              dest: 'dist/',
               flatten: true,
               filer: 'isfile'
             },
@@ -34,7 +35,6 @@ require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
         jshint: {
             all: ['Gruntfile.js', 'app/js/**/**/*.js', 'test/**/*.js','server.js'],
             options: {
-                jshintrc: false,
                 globals: {
                     jQuery: true,
                     console: true,
@@ -46,7 +46,7 @@ require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
         connect: {
             options: {
                 port: process.env.PORT || 3000,
-                base: 'dist/'
+                base: 'dist/client.js'
               },
             all: {}
         },
@@ -86,5 +86,7 @@ require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
     });
 
     grunt.registerTask('default', 'jshint');
+    grunt.registerTask('build', ['clean', 'browserify', 'copy']);
+    grunt.registerTask('serve', ['build', 'express:dev','watch']);
 
 };

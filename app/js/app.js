@@ -1,3 +1,6 @@
+/*jslint node: true */
+'use strict';
+
 function Place (name, address, rating, price) {
     this.name = name;
     this.address = address;
