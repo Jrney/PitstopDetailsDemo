@@ -1,0 +1,18 @@
+h2 {
+    text-align: center;
+}
+
+.item {
+    width: 12em;
+    margin: 5px;
+    float: left;
+    height: 16em;
+    background: #0D8;
+    border: 2px solid #333;
+    border-color: hsla(0, 0%, 0%, 0.7);
+}
+
+.item.w2 {
+    width: 12em;
+    height: 14em
+}

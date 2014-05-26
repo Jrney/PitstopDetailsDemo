@@ -1,16 +1,33 @@
 /*jslint node: true */
 'use strict';
 
-function Place (name, address, rating, price) {
-    this.name = name;
-    this.address = address;
-    this.rating = rating;
-    this.price = price;
-}
+require.config({});
 
-Place.prototype.sayInfo = function() {
-    return (this.name +", "+ this.address +", "+ this.rating +", "+ this.price);
-};
-var examplePlace = new Place('UPS','123 Fake St.', 3, '$$' );
+require(['jquery'], function($) {
+    //Simple example Place object
+    function Place (name, address, rating, price) {
+        this.name = name;
+        this.address = address;
+        this.rating = rating;
+        this.price = price;
+    }
 
-console.log(examplePlace.sayInfo());
+    Place.prototype.sayInfo = function() {
+        return (this.name +", "+ this.address +", "+ this.rating +", "+ this.price);
+    };
+    var examplePlace = new Place('UPS','123 Fake St.', 3, '$$' );
+
+    console.log(examplePlace.sayInfo());
+
+    //ISOTOPE
+    var $container = $('#container');
+    // initialize
+    $container.isotope({
+      // options
+      itemSelector: '.item',
+      layoutMode: 'masonry',
+      masonry: {
+        columnWidth: 25
+      }
+    });
+});

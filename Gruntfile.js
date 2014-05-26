@@ -14,22 +14,18 @@ require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
             all: {
               expand: true,
               cwd: 'app',
-              src: ['*.css','*.html','/images/**/*','!Gruntfile.js'],
+              src: [
+                  '*.css',
+                  '*.html',
+                  './js/**/*.js',
+                  './images/**/*',
+                  './bower_components/**/*',
+                  '!Gruntfile.js'
+              ],
               dest: 'dist/',
-              flatten: true,
+              flatten: false,
               filer: 'isfile'
             },
-        },
-
-        browserify: {
-            all: {
-                src: 'app/js/**/*.js',
-                dest: 'dist/client.js'
-            },
-            options: {
-              transform: ['debowerify'],
-              debug: true
-            }
         },
 
         jshint: {
@@ -53,14 +49,8 @@ require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
         watch: {
             scripts: {
-                files: ['api/**/*.js','app/js/**/*.js','test/**/*.js']
-            },
-            express: {
-                files: ['server.js'],
-                tasks: ['browserify'],
-                options: {
-                    spawn: false
-                }
+                files: ['app/**/*'],
+                tasks: ['build']
             }
         },
 
@@ -86,7 +76,7 @@ require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
     });
 
     grunt.registerTask('default', 'jshint');
-    grunt.registerTask('build', ['clean', 'browserify', 'copy']);
+    grunt.registerTask('build', ['clean', 'copy']);
     grunt.registerTask('serve', ['build', 'express:dev','watch']);
 
 };
