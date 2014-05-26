@@ -7,12 +7,12 @@ h2 {
     margin: 5px;
     float: left;
     height: 16em;
-    background: #0D8;
+    background: #9098db;
     border: 2px solid #333;
     border-color: hsla(0, 0%, 0%, 0.7);
 }
 
 .item.w2 {
     width: 12em;
-    height: 14em
+    height: 14em;
 }

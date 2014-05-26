@@ -1,9 +1,15 @@
 /*jslint node: true */
 'use strict';
 
-require.config({});
-
-require(['jquery'], function($) {
+define([
+    'jquery',
+    'backbone',
+    'isotope'
+], function(
+    $,
+    Backbone,
+    Isotope
+    ) {
     //Simple example Place object
     function Place (name, address, rating, price) {
         this.name = name;
@@ -20,14 +26,11 @@ require(['jquery'], function($) {
     console.log(examplePlace.sayInfo());
 
     //ISOTOPE
-    var $container = $('#container');
-    // initialize
-    $container.isotope({
-      // options
-      itemSelector: '.item',
-      layoutMode: 'masonry',
-      masonry: {
-        columnWidth: 25
-      }
+    var iso = new Isotope ("#container", {
+        itemSelector: '.item',
+        layoutMode: 'masonry',
+        masonry: {
+            columnWidth: 25
+        }
     });
 });

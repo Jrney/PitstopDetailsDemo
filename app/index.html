@@ -9,7 +9,7 @@
         <h2>Pitstop Details</h2>
 
         <section id="container">
-            <div class="item"></div>
+            <div class="item">Pitstop one</div>
             <div class="item w2"></div>
             <div class="item"></div>
             <div class="item w2"></div>
@@ -28,10 +28,23 @@
             <div class="item"></div>
         </section>
 
-        <!-- TODO: convert to grunt bower. use minified on production -->
         <script src="bower_components/requirejs/require.js"></script>
-        <script src="bower_components/jQuery/dist/jquery.js"></script>
-        <script src="bower_components/isotope/jquery.isotope.js"></script>
-        <script src="js/app.js"></script>
+        <script>
+            (function (){ // TODO: Uncomment when bundling works
+                // Look at query string to decide whether to use production bundle.
+                // Entering "?_dist=0" will disable bundle and use raw JS sources.
+                //var useBundle = window.location.search.substr(1).indexOf("_dist=0") === -1;
+
+                // If bundled, require the `bundle.js` for single JS file.
+                // Otherwise, bootstrap off raw `config.js` for individual JS files.
+                //var loadFile = useBundle ? "js-dist/bundle.js" : "js/config.js";
+
+                // Load base file (bundle or config), and invoke the app.
+                var loadFile = "js/config.js";
+                require([loadFile], function () {
+                  require(["app/app"]);
+                });
+            }());
+         </script>
     </body>
 </html>
