@@ -4,11 +4,13 @@
 define([
     'jquery',
     'backbone',
-    'isotope'
+    'isotope',
+    'app/modelViews/PlacesView'
 ], function(
     $,
     Backbone,
-    Isotope
+    Isotope,
+    PlacesView
     ) {
     //Simple example Place object
     function Place (name, address, rating, price) {
@@ -33,4 +35,9 @@ define([
             columnWidth: 25
         }
     });
+
+    var placesView = new PlacesView ();
+
+    placesView.render();
+
 });

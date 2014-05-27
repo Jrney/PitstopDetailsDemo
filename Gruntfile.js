@@ -17,7 +17,9 @@ require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
               src: [
                   '*.css',
                   '*.html',
+                  // TODO: combine these two statements
                   './js/**/*.js',
+                  './js/**/*.hbs',
                   './images/**/*',
                   './bower_components/**/*',
                   '!Gruntfile.js'
