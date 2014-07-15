@@ -1,6 +1,6 @@
 Pitstop Details Demo
 ==================
-An initial demo of the pitstops page that intakes the raw JSON received from the Google Maps- Places API and displays boxes dynamically for place item received, as well as the specific place details. 
+An initial demo of the pitstops page that intakes the raw JSON received from the Google Maps Places API and displays boxes dynamically for place item received, as well as the specific place details. 
 
 Once fully integrated into main Jrney application, the next step is adding photos, styling, as well as utilizing isotope’s filtering and sorting.
 
